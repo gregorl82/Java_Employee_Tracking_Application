@@ -24,10 +24,15 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Employee(String firstName, String lastName, int employeeNumber) {
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    public Employee(String firstName, String lastName, int employeeNumber, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeNumber = employeeNumber;
+        this.department = department;
         this.projects = new ArrayList<>();
     }
 
@@ -76,5 +81,13 @@ public class Employee {
 
     public void addProject(Project project){
         this.projects.add(project);
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

@@ -1,5 +1,7 @@
 package com.codeclan.example.EmployeesLab.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,8 @@ public class Department {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "employee_id")
+    @JsonIgnoreProperties("department")
+    @OneToMany(mappedBy = "department")
     private List<Employee> employees;
 
     @Id
