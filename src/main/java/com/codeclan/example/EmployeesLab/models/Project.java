@@ -14,7 +14,7 @@ public class Project {
     @Column(name = "duration")
     private int duration;
 
-    @Column(name = "employee_id")
+    @Column(name = "employees")
     private List<Employee> employees;
 
     @Id
