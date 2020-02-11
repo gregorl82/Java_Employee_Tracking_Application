@@ -2,6 +2,7 @@ package com.codeclan.example.EmployeesLab.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "departments")
@@ -10,7 +11,7 @@ public class Department {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "employees")
+    @Column(name = "employee_id")
     private List<Employee> employees;
 
     @Id
